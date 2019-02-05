@@ -4,16 +4,12 @@
     font-family: sans-serif;
     scroll-behavior: smooth;
 }
-.current{
-    background-color: goldenrod;
-}
 /*-----------------------home-------------------------------*/
 #home{
    background-image: url(../img/1.jpg);
    width: 100%;
    height: 100vh;
    background-size: cover;
-   
 }
 #nav-bar{
     width: 100%;
@@ -21,10 +17,13 @@
     background-color: #0009;
     line-height: 80px;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
 }
 nav ul{
-    float: right;
-    margin-right: 60px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
 }
 nav ul li{
     display: inline-block;
@@ -40,35 +39,68 @@ nav ul li a{
     padding: 30px;
     font-family: 'Montserrat', sans-serif;
 }
-.text{
-    width: 100%;
+.home-text{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 350px;
+    align-items: center;
+    top: 20%;
     position: absolute;
-    top: 30%;
-    right: 20%;
 }
 .text h1{
-    text-align: center;
     color: goldenrod;
     font-size: 70px;
     font-family: 'Kaushan Script', cursive;
 }
 .text h3{
-    text-align: center;
     font-family: 'Montserrat', sans-serif;
-}
-.logo{
-    position: absolute;
-    left: 20%;
-    top: 55%;
+    text-align: center;
 }
 .logo-text{
     color: goldenrod;
-    float: left;
     margin-left: 60px;
     font-size: 30px;
+    width: 30%;
 }
 .logo-text h1{
     font-family: 'Kaushan Script', cursive;
+}
+@media(max-width: 950px){
+    #nav-bar{
+        flex-direction: column;
+        height: 150px;
+        align-items: center;
+    }
+    .home-text{
+        top: 25%;
+        transform: scale(0.8);
+        width: 600px;
+    }
+    .home-text h1{
+        margin-bottom: 20px;
+    }
+}
+@media(max-width: 750px){
+    #nav-bar{
+        height: 80px;
+    }
+    #nav-bar ul{
+        display: none;
+    }
+    .logo-text{
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .home-text{
+        top: 15%;
+        transform: scale(0.65);
+        width: 400px;
+    }
+    .home-text h1{
+        margin-bottom: 20px;
+    }
 }
 /*-----------------------about-------------------------------*/
 #about{
@@ -78,7 +110,6 @@ nav ul li a{
 }
 .text1{
     width: 100%;
-    position: absolute;
     margin-top: 20%;
 }
 .text1 h1{
@@ -93,25 +124,46 @@ nav ul li a{
     font-size: 30px;
     letter-spacing: 7px;
 }
+@media(max-width: 800px){
+    #about{
+        
+    }
+    .text1 h1{
+        font-size: 30px;
+    }
+    .text1 h3{
+        font-size: 20px;
+    }
+}
 /*-----------------------services-------------------------------*/
 #services{
     background-color: gainsboro;
-    height: 180vh;
+    display: flex;
+    flex-direction: column;
+}
+.service-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    margin: 50px auto;
 }
 .box{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    align-items: center;
     height: 250px;
-    width: 23%;
+    width: 300px;
+    padding: 15px;
     background-color: white;
-    float: left;
-    margin-top: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
 }
 .icons{
     color: goldenrod;
     text-shadow: 4px 4px 4px silver;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px auto;
+    font-size: 10px;
 }
 .box h1{
     text-align: center;
@@ -121,8 +173,8 @@ nav ul li a{
 }
 .text2{
     width: 100%;
-    position: absolute;
-    margin-top: 28%;
+    text-align: center;
+    margin-bottom: 100px;
 }
 .text2 h1{
     text-align: center;
@@ -130,23 +182,93 @@ nav ul li a{
     color: goldenrod;
     font-size: 50px;
 }
-.text2 img{
-    height: 50px;
-    width: 50px;
+@media(max-width: 1000px){
+    .service-icons{
+        width: 100%;
+    }
+    .box{
+        margin: 50px 15px;
+    }
+}
+@media(max-width: 700px){
+    
+    .service-icons{
+        flex-direction: column;
+        margin: 100px auto;
+        width: 60%;
+    }
+    .box{
+        margin: 20px auto;
+    }
+}
+@media(max-width: 500px){
+    .box{
+        width: 200px;
+    }
 }
 .slike{
-    height: 150px;
-    width: 100%;
-    float: left;
-    margin-top: 15%;
-    margin-left: 28%;
-    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 250px;
+    height: 350px;
+    border-radius: 5%;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    background: lightgrey;
+}
+.slike img{
+    margin: 20px 0;
+    border: 4px solid rgb(87, 86, 86);
+}
+.slike h4{
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.slike h5{
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.slike i{
+    color: black;
+    font-size: 30px;
+    transition: 1s;
+}
+.slike i:hover{
+    color: goldenrod;
+    transition: 1s;
 }
 .profil{
     border-radius: 50%;
     height: 150px;
     width: 150px;
     margin-right: 5%;
+}
+.team{
+    width: 70%;
+    height: 600px;
+    margin: auto;
+    justify-content: space-between;
+    display: flex;
+}
+@media(max-width: 1100px){
+    .team{
+        width: 90%;
+    }
+}
+@media(max-width: 900px){
+    .team{
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+        align-items: center;
+        height: 1100px;
+        margin-top: -50px;
+        margin-bottom: 50px;
+    }
+    .slike{
+        margin: 20px 0;
+    }
 }
 /* ---------------Form------------------*/
 #form{
@@ -183,4 +305,9 @@ footer h1{
     font-weight: 400;
     padding: 60px 0;
     font-size: 16px;
+}
+@media(max-width: 500px){
+    .form-part{
+        width: 85%;
+    }
 }
